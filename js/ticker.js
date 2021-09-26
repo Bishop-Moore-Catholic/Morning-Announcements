@@ -16,7 +16,7 @@ $(document).ready(function() {
             $("#rss-feed").append(titles);
             $("#rss-feed").webTicker({
                 speed: 100,
-                startEmpty: false,
+                startEmpty: true,
                 hoverpause: false,
                 height: '250px',
             });
