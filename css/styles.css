@@ -5,12 +5,19 @@
 
 p {
     font-family: "Futura", sans-serif;
-    font-size: 24px;
+    font-size: 56px;
     color: white;
 }
 
 p img {
-    height: 40px;
+    height: 70px;
     position: relative;
-    top: 10px;
+    top: 15px;
+
+    /* filter: invert(100%); */
+}
+
+.mask{
+    position: absolute;
+    top: -125px;
 }

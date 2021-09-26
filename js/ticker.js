@@ -15,10 +15,10 @@ $(document).ready(function() {
 
             $("#rss-feed").append(titles);
             $("#rss-feed").webTicker({
-                speed: 80,
-                startEmpty: true,
+                speed: 100,
+                startEmpty: false,
                 hoverpause: false,
-                height: '100px',
+                height: '250px',
             });
         }  
     }); 
