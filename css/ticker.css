@@ -3,6 +3,10 @@
     src: url("https://cdn.jsdelivr.net/npm/futura-font@1.0.0/FuturaBT-Medium.ttf");
   }
 
+  body {
+      background-color: black;
+  }
+
 p {
     font-family: "Futura", sans-serif;
     font-size: 56px;
