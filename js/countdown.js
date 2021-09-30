@@ -21,16 +21,15 @@ var tag = function () {
 
 function call() {
     var timeRem = function () {
-        var timestamp = Date.parse(tag.mm + "/" + tag.dd + "/" + tag.yy + " GMT-0500") - Date.parse(new Date());
-        var day = Math.floor(timestamp / (1000 * 60 * 60 * 24)); //day
-        return day;
+        var time = new Date(`${tag.mm}/${tag.dd}/ ${tag.yy}`).getTime() - new Date().getTime();
+        return Math.floor((time) / (1000 * 60 * 60 * 24)) + 1;
     }();
 
     var days = function () {
         if (timeRem == 1) {
             return " Day";
         } else if (timeRem <= 0) {
-            return "";
+            return "0 Days";
         } else {
             return " Days";
         }
@@ -45,7 +44,6 @@ function call() {
     }();
 
     document.getElementById("counter").innerHTML = day + days;
-    setTimeout(call, 1000);
 }
 
 call();
