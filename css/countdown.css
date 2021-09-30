@@ -1,4 +1,24 @@
 @font-face {
     font-family: Futura;
     src: url("https://cdn.jsdelivr.net/npm/futura-font@1.0.0/FuturaBT-Medium.ttf");
-  }
+}
+
+h1, h2 {
+    color: white;
+    font-family: "Futura", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 4px 4px 2px #8C7349;
+}
+
+.container{
+    background-color: black;
+    border: 5px solid #C2B655;
+    display: block;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: fit-content;
+    max-width: 150px;
+}
