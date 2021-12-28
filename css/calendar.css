@@ -1,0 +1,54 @@
+@font-face {
+    font-family: Futura;
+    src: url("https://cdn.jsdelivr.net/npm/futura-font@1.0.0/FuturaBT-Medium.ttf");
+}
+
+#rss-feed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#wrapper {
+    width: 1920px;
+    height: 1080px;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url('../img/bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    font-family: "Futura", sans-serif;
+
+    width: 1920px;
+    height: 1080px;
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    font-family: "Futura", sans-serif;
+    position:absolute;
+    visibility:hidden;
+
+    width: 100%;
+}
+
+li > p {
+    font-size: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
