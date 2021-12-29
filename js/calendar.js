@@ -15,9 +15,9 @@ response.items.forEach(item => {
 
 $("#rss-feed").append(titles);
 
-var item = $("li")
-var tl = new TimelineMax({delay:i*1});
-for (var i=0; i<item.length; i++) {           
-    tl.from(item[i], 2, {y:50, autoAlpha:0})
-    tl.to(item[i], 2, {y:-50, autoAlpha:0, delay: 5}, "+=1");
-}
+// var item = $("li")
+// var tl = new TimelineMax({delay:i*1});
+// for (var i=0; i<item.length; i++) {           
+//     tl.from(item[i], 2, {y:50, autoAlpha:0})
+//     tl.to(item[i], 2, {y:-50, autoAlpha:0, delay: 5}, "+=1");
+// }

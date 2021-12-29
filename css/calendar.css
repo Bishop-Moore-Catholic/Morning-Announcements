@@ -1,14 +1,6 @@
-@font-face {
-    font-family: Futura;
-    src: url("https://cdn.jsdelivr.net/npm/futura-font@1.0.0/FuturaBT-Medium.ttf");
-}
-
-#rss-feed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+/* .container, .col, .row {
+    border: 1px solid red;
+} */
 
 #wrapper {
     width: 1920px;
@@ -22,7 +14,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
 
-    font-family: "Futura", sans-serif;
+    font-family: futura-pt, sans-serif;
 
     width: 1920px;
     height: 1080px;
@@ -32,16 +24,10 @@ body {
     overflow: hidden;
 }
 
-h1 {
-    text-transform: uppercase;
-    text-align: center;
-}
-
 li {
     list-style: none;
-    font-family: "Futura", sans-serif;
-    position:absolute;
-    visibility:hidden;
+    /* position:absolute;
+    visibility:hidden; */
 
     width: 100%;
 }
