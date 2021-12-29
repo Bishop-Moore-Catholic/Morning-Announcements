@@ -1,4 +1,4 @@
-/* .container, .col, .row {
+/* span {
     border: 1px solid red;
 } */
 
@@ -24,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-li {
+#rss-feed > li {
     list-style: none;
     /* position:absolute;
     visibility:hidden; */
@@ -37,4 +37,35 @@ li > p {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Weather */
+
+.now.temp {
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.now.icon {
+    font-size: 92px;
+}
+
+.now.desc {
+    font-size: 56px;
+    text-transform: capitalize;
+
+}
+
+td {
+    font-size: 32px;
+    padding: 15px;
+}
+
+tr {
+    border-bottom: 1px solid black;
+    padding-bottom: 40px;
+}
+
+table {
+    text-align: center;
 }
