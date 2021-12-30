@@ -18,19 +18,40 @@
 
 <body>
     <div id="wrapper">
-       <div class="row p-5">
+       <div class="row pt-5 pb-2">
         <div class="col-12 text-center">
           <h1 class="text-uppercase">What's Buzzin' Today</h1>
         </div>
        </div>
-       <div class="row">
-        <div class="col col-6 text-center pl-4 pr-4">
-          <h2 class="text-uppercase">Upcoming Events</h2>
-          <hr>
-          <ul id="rss-feed" ></ul>
+       <div class="row p-5">
+        <div class="col col-6 text-center pl-5 pr-5">
+          <div id="calendarCarousel" class="carousel slide" data-ride="carousel" data-interval="15000" data-pause="false" data-keybaord="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h2 class="text-uppercase">Upcoming Events</h2>
+                <hr>
+                <ul class="rss-feed feed1"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Events</h2>
+                <hr>
+                <ul class="rss-feed feed2"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Games</h2>
+                <hr>
+                <ul class="rss-feed feed3"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Games</h2>
+                <hr>
+                <ul class="rss-feed feed4"></ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col col-6 text-center pl-4 pr-4">
-          <div id="weatherCarousel" class="carousel slide" data-ride="carousel">
+        <div class="col col-6 text-center pl-5 pr-5">
+          <div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="15000" data-pause="false" data-keybaord="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <h2 class="text-uppercase">Currently</h2>

@@ -1,12 +1,6 @@
-/* span {
-    border: 1px solid red;
-} */
-
 #wrapper {
     width: 1920px;
     height: 1080px;
-    padding: 0;
-    margin: 0;
 }
 
 body {
@@ -18,18 +12,36 @@ body {
 
     width: 1920px;
     height: 1080px;
-    padding: 0;
-    margin: 0;
-
     overflow: hidden;
 }
 
-#rss-feed > li {
-    list-style: none;
-    /* position:absolute;
-    visibility:hidden; */
+h1 {
+    font-size: 56px;
+}
 
-    width: 100%;
+h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+hr {
+    border-bottom: 1px solid black;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Calendar */
+.rss-feed > li {
+    width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-bottom: 1px solid black;
 }
 
 li > p {
@@ -39,8 +51,19 @@ li > p {
     margin-right: auto;
 }
 
-/* Weather */
+.feed-title {
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
 
+.feed-date {
+    font-size: 32px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+/* Weather */
 .now.temp {
     font-size: 64px;
     font-weight: 700;
@@ -53,7 +76,6 @@ li > p {
 .now.desc {
     font-size: 56px;
     text-transform: capitalize;
-
 }
 
 td {

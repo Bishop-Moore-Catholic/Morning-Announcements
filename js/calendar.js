@@ -1,9 +1,10 @@
 "use strict";
 
-const feedURL = 'https://www.bishopmoore.org/pro/events_rss.cfm?detailid=315833&categoryid=bishopmoore%2Eorg%5F4n0bh8ml5l41q764ael5s4rkok%40group%2Ecalendar%2Egoogle%2Ecom%2CGENERAL%2CLiturgy%2CNo%20School';
+const feedURL = 'https%3A%2F%2Fwww.bishopmoore.org%2Fpro%2Fevents_rss.cfm%3Fdetailid%3D315833%26categoryid%3Dbishopmoore%252Eorg%255F4n0bh8ml5l41q764ael5s4rkok%2540group%252Ecalendar%252Egoogle%252Ecom%252CGENERAL%252CLiturgy%252CNo%2520School';
+const athleticsURL = 'https%3A%2F%2Fwww.bishopmoore.org%2Fpro%2Fevents_rss.cfm%3Fcategoryid%3Dpc22muclr8j8mneinu2nkmvkm896d8a5%2540import%252Ecalendar%252Egoogle%252Ecom%252CGENERAL%252CLiturgy%252CNo%2520School%26detailid%3D425234';
 const weatherURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=28.587340058232893&lon=-81.39051297317081&APPID=5a0c0f77c41cee987f71f3812135ca43&exclude=minutely&units=imperial';
-const rss2json = 'https://api.rss2json.com/v1/api.json?rss_url=';
-const reg = '^([\w\d\s\W\D]+) - (?:(\w+ \d+, 20\d\d) to (\w+ \d+, 20\d\d)||(\w+ \d+, 20\d\d))$'
+const rss2json = 'https://api.rss2json.com/v1/api.json?api_key=alol7v92upbqimssjyhlglsm4ejqvlh5m9smvkdm&rss_url=';
+const reg = /^([\w\d\s\W\D]+) - (?:(\w+ \d+, 20\d\d) to (\w+ \d+, 20\d\d)||(\w+ \d+, 20\d\d))$/;
 
 const weatherIcon = {
     '01d': 'sun',
@@ -41,28 +42,63 @@ var calFeed = $.parseJSON($.ajax({
     async: false
 }).responseText);
 
+// var calFeed;
+// $.get(feedURL, function (data) {
+//     calFeed = data;
+// });
+// console.log(calFeed);
+
+var athleticFeed = $.parseJSON($.ajax({
+    url: rss2json + athleticsURL,
+    async: false
+}).responseText);
+
 var weatherFeed = $.parseJSON($.ajax({
     url: weatherURL,
     async: false
 }).responseText);
 
-console.log(weatherFeed);
-
-var titles = "";
+// Calendar
+var titles = [];
 calFeed.items.forEach(item => {
-    titles += `<li><p>${item.title}</p></li>`;
+    var split = item.title.match(reg);
+
+    if (split[4] != undefined) {
+        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+        `<p class="feed-date">${split[4]}</p></li>`);
+    } else {
+        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+        `<p class="feed-date">${split[2]} – ${split[3]}</p></li>`);
+    }
 });
 
-$('#rss-feed').append(titles);
+for(var i = 0; i < titles.length; i++) {
+    if (i < 5) $('.feed1').append(titles[i]) 
+    else if (i >= 5 && i < 10) $('.feed2').append(titles[i]) 
+    else break;
+}
 
-// var item = $("li")
-// var tl = new TimelineMax({delay:i*1});
-// for (var i=0; i<item.length; i++) {           
-//     tl.from(item[i], 2, {y:50, autoAlpha:0})
-//     tl.to(item[i], 2, {y:-50, autoAlpha:0, delay: 5}, "+=1");
-// }
+titles.length = 0;
+console.log(athleticFeed)
+athleticFeed.items.forEach(item => {
+    var split = item.title.match(reg);
 
+    if (split[4] != undefined) {
+        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+        `<p class="feed-date">${split[4]}</p></li>`);
+    } else {
+        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+        `<p class="feed-date">${split[2]} – ${split[3]}</p></li>`);
+    }
+});
 
+for(var i = 0; i < titles.length; i++) {
+    if (i < 5) $('.feed3').append(titles[i]) 
+    else if (i >= 5 && i < 10) $('.feed4').append(titles[i]) 
+    else break;
+}
+
+// Weather
 $('.now.temp').text(`${weatherFeed.current.temp.toFixed(0)}\xB0`);
 $('.now.icon > i').addClass('fa-' + weatherIcon[weatherFeed.current.weather[0].icon]);
 $('.now.desc').text(`${weatherFeed.current.weather[0].description}`);
@@ -72,7 +108,7 @@ for(var i = 1; i < 10; i++) {
     `<td>${(new Date(weatherFeed.hourly[i].dt * 1000).getHours() % 12 || 12) + ':00'}</td>` +
     `<td>${weatherFeed.hourly[i].temp.toFixed(0)}\xB0</td>` +
     `<td class="fa fa-2x fa-${weatherIcon[weatherFeed.hourly[i].weather[0].icon]}"></td>` +
-    `<td>${weatherFeed.hourly[i].weather[0].description}</td>` +
+    `<td class="text-capitalize">${weatherFeed.hourly[i].weather[0].description}</td>` +
     `</tr>`);
 }
 
@@ -85,7 +121,3 @@ for(var i = 1; i < 8; i++) {
     `<td class="text-capitalize">${weatherFeed.daily[i].weather[0].description}</td>` +
     `</tr>`);
 }
-
-$('#weatherCarousel').carousel({
-    interval: 15000
-})
