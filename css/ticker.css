@@ -6,6 +6,7 @@ p {
     font-family: futura-pt, sans-serif;
     font-size: 56px;
     color: white;
+    text-transform: uppercase;
 }
 
 p img {
