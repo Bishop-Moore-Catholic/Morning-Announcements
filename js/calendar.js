@@ -37,16 +37,11 @@ const days = {
     6: 'SAT'
 }
 
+// Parse Feeds
 var calFeed = $.parseJSON($.ajax({
     url: rss2json + feedURL,
     async: false
 }).responseText);
-
-// var calFeed;
-// $.get(feedURL, function (data) {
-//     calFeed = data;
-// });
-// console.log(calFeed);
 
 var athleticFeed = $.parseJSON($.ajax({
     url: rss2json + athleticsURL,
