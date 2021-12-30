@@ -74,7 +74,6 @@ for(var i = 0; i < titles.length; i++) {
 }
 
 titles.length = 0;
-console.log(athleticFeed)
 athleticFeed.items.forEach(item => {
     var split = item.title.match(reg);
 
