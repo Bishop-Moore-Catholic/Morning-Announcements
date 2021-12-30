@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Morning Announcements Calendar</title>
+  <meta name="description" content="Morning Announcements Calendar">
+  <meta name="author" content="Miko Jimenez">
+
+  <link rel="stylesheet" href="https://use.typekit.net/ymt8xmp.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/calendar.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+       <div class="row pt-5 pb-2">
+        <div class="col-12 text-center">
+          <h1 class="text-uppercase">What's Buzzin' Today</h1>
+        </div>
+       </div>
+       <div class="row p-5">
+        <div class="col col-6 text-center pl-5 pr-5">
+          <div id="calendarCarousel" class="carousel slide" data-ride="carousel" data-interval="15000" data-pause="false" data-keybaord="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h2 class="text-uppercase">Upcoming Events</h2>
+                <hr>
+                <ul class="rss-feed feed1"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Events</h2>
+                <hr>
+                <ul class="rss-feed feed2"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Games</h2>
+                <hr>
+                <ul class="rss-feed feed3"></ul>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Upcoming Games</h2>
+                <hr>
+                <ul class="rss-feed feed4"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-6 text-center pl-5 pr-5">
+          <div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="15000" data-pause="false" data-keybaord="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h2 class="text-uppercase">Currently</h2>
+                <hr>
+                <p class="now temp pt-5"></p>
+                <p class="now icon"><i class="fa"></i></p>
+                <p class="now desc"></p>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">Hourly Forecast</h2>
+                <hr>
+                <table id="hourly" class="ml-auto mr-auto"></table>
+              </div>
+              <div class="carousel-item">
+                <h2 class="text-uppercase">7 Day Forecast</h2>
+                <hr>
+                <table id="sevenDay" class="ml-auto mr-auto"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="js/calendar.js"></script>
+</html>
