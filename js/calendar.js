@@ -63,7 +63,7 @@ calFeed.items.forEach(item => {
         `<p class="feed-date">${split[4]}</p></li>`);
     } else {
         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-        `<p class="feed-date">${split[2]} – ${split[3]}</p></li>`);
+        `<p class="feed-date">${split[2]}</p></li>`);
     }
 });
 
@@ -82,7 +82,7 @@ athleticFeed.items.forEach(item => {
         `<p class="feed-date">${split[4]}</p></li>`);
     } else {
         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-        `<p class="feed-date">${split[2]} – ${split[3]}</p></li>`);
+        `<p class="feed-date">${split[2]}</p></li>`);
     }
 });
 
