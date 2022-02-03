@@ -43,10 +43,10 @@ var calFeed = $.parseJSON($.ajax({
     async: false
 }).responseText);
 
-var athleticFeed = $.parseJSON($.ajax({
-    url: rss2json + athleticsURL,
-    async: false
-}).responseText);
+// var athleticFeed = $.parseJSON($.ajax({
+//     url: rss2json + athleticsURL,
+//     async: false
+// }).responseText);
 
 var weatherFeed = $.parseJSON($.ajax({
     url: weatherURL,
@@ -73,24 +73,24 @@ for(var i = 0; i < titles.length; i++) {
     else break;
 }
 
-titles.length = 0;
-athleticFeed.items.forEach(item => {
-    var split = item.title.match(reg);
+// titles.length = 0;
+// athleticFeed.items.forEach(item => {
+//     var split = item.title.match(reg);
 
-    if (split[4] != undefined) {
-        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-        `<p class="feed-date">${split[4]}</p></li>`);
-    } else {
-        titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-        `<p class="feed-date">${split[2]}</p></li>`);
-    }
-});
+//     if (split[4] != undefined) {
+//         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+//         `<p class="feed-date">${split[4]}</p></li>`);
+//     } else {
+//         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
+//         `<p class="feed-date">${split[2]}</p></li>`);
+//     }
+// });
 
-for(var i = 0; i < titles.length; i++) {
-    if (i < 5) $('.feed3').append(titles[i]) 
-    else if (i >= 5 && i < 10) $('.feed4').append(titles[i]) 
-    else break;
-}
+// for(var i = 0; i < titles.length; i++) {
+//     if (i < 5) $('.feed3').append(titles[i]) 
+//     else if (i >= 5 && i < 10) $('.feed4').append(titles[i]) 
+//     else break;
+// }
 
 // Weather
 $('.now.temp').text(`${weatherFeed.current.temp.toFixed(0)}\xB0`);
