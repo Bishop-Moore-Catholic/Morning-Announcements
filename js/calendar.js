@@ -1,7 +1,7 @@
 "use strict";
 
 const feedURL = 'https%3A%2F%2Fwww.bishopmoore.org%2Fpro%2Fevents_rss.cfm%3Fdetailid%3D315833%26categoryid%3Dbishopmoore%252Eorg%255F4n0bh8ml5l41q764ael5s4rkok%2540group%252Ecalendar%252Egoogle%252Ecom%252CGENERAL%252CLiturgy%252CNo%2520School';
-const athleticsURL = 'https%3A%2F%2Fwww.bishopmoore.org%2Fpro%2Fevents_rss.cfm%3Fcategoryid%3Dpc22muclr8j8mneinu2nkmvkm896d8a5%2540import%252Ecalendar%252Egoogle%252Ecom%252CGENERAL%252CLiturgy%252CNo%2520School%26detailid%3D425234';
+const marqueeURL = 'https://www.bishopmoore.org/pro/announcements_rss.cfm?detailid=448291';
 const weatherURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=28.587340058232893&lon=-81.39051297317081&APPID=5a0c0f77c41cee987f71f3812135ca43&exclude=minutely&units=imperial';
 const rss2json = 'https://api.rss2json.com/v1/api.json?api_key=alol7v92upbqimssjyhlglsm4ejqvlh5m9smvkdm&rss_url=';
 const reg = /^([\w\d\s\W\D]+) - (?:(\w+ \d+, 20\d\d) to (\w+ \d+, 20\d\d)||(\w+ \d+, 20\d\d))$/;
@@ -43,10 +43,10 @@ var calFeed = $.parseJSON($.ajax({
     async: false
 }).responseText);
 
-// var athleticFeed = $.parseJSON($.ajax({
-//     url: rss2json + athleticsURL,
-//     async: false
-// }).responseText);
+var marqueeFeed = $.parseJSON($.ajax({
+    url: rss2json + marqueeURL,
+    async: false
+}).responseText);
 
 var weatherFeed = $.parseJSON($.ajax({
     url: weatherURL,
@@ -73,24 +73,16 @@ for(var i = 0; i < titles.length; i++) {
     else break;
 }
 
-// titles.length = 0;
-// athleticFeed.items.forEach(item => {
-//     var split = item.title.match(reg);
+titles.length = 0;
+marqueeFeed.items.forEach(item => {
+    titles.push(`<li><p class="feed-title">${item.title}</p>`);
+});
 
-//     if (split[4] != undefined) {
-//         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-//         `<p class="feed-date">${split[4]}</p></li>`);
-//     } else {
-//         titles.push(`<li><p class="feed-title">${split[1]}</p>` +
-//         `<p class="feed-date">${split[2]}</p></li>`);
-//     }
-// });
-
-// for(var i = 0; i < titles.length; i++) {
-//     if (i < 5) $('.feed3').append(titles[i]) 
-//     else if (i >= 5 && i < 10) $('.feed4').append(titles[i]) 
-//     else break;
-// }
+for(var i = 0; i < titles.length; i++) {
+    if (i < 5) $('.feed3').append(titles[i]) 
+    else if (i >= 5 && i < 10) $('.feed4').append(titles[i]) 
+    else break;
+}
 
 // Weather
 $('.now.temp').text(`${weatherFeed.current.temp.toFixed(0)}\xB0`);
