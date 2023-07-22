@@ -9,13 +9,15 @@ var response = $.parseJSON($.ajax({
 
 var titles = "";
 response.items.forEach(item => {
-    titles += `<li><p>${item.title}</p></li>`;
+    titles += `<li><p>${item.title}  |  </p></li>`;
 });
 
 $("#rss-feed").append(titles);
 $("#rss-feed").webTicker({
+    duplicate: true, 
+    height: '250px',
+    hoverpause: false,
     speed: 100,
     startEmpty: true,
-    hoverpause: false,
-    height: '250px',
+    transition: 'linear'
 });
